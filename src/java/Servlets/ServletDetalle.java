@@ -68,7 +68,7 @@ public class ServletDetalle extends HttpServlet {
                     lista.add(em);
                 }
                 request.setAttribute("lista", lista);
-                request.getRequestDispatcher("vistas/listadoDetalles.jsp").forward(request, response);
+                request.getRequestDispatcher("listadoDetalles.jsp").forward(request, response);
             } catch (Exception e) {
                 System.out.println("Error: " + e);
             }

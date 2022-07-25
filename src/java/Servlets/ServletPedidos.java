@@ -28,6 +28,10 @@ import dao.impl.PedidoDaoImpl;
 import dao.impl.ProductoDaoImpl;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+//import java.io.*;
+//import net.sf.jasperreports.engine.*;
+//import net.sf.jasperreports.view.JasperViewer;
+//import javax.servlet.ServletResponse;
 
 /**
  *
@@ -72,7 +76,7 @@ public class ServletPedidos extends HttpServlet {
             try {
                 List<PedidosBeans> lista = pedidoDao.listar();
                 request.setAttribute("lista", lista);
-                request.getRequestDispatcher("vistas/listadoPedidos.jsp").forward(request, response);
+                request.getRequestDispatcher("listadoPedidos.jsp").forward(request, response);
             } catch (Exception e) {
                 System.out.println("Error: " + e);
             }
@@ -186,7 +190,6 @@ public class ServletPedidos extends HttpServlet {
             } 
             
         }
-
     }
 
     /**
