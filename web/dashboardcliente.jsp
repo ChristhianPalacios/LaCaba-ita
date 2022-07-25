@@ -472,7 +472,7 @@
                                 <strong>Números de contacto:</strong> 957 351 983
                             <p> (01)2632825 & (01)2639014 </p>
                             <br>
-                            <strong>Email:</strong> polleriasyparrilladassanmartin10@hotmail.com<br>
+                            <strong>Email:</strong> polleriasyparrillaslacabañita@hotmail.com<br>
 
                         </div>
                     </div>
@@ -495,7 +495,7 @@
                                 Pollerias y Parrilladas LA CABAÑITA </li>
                             <li><a href="https://www.instagram.com/polleriasanm/">
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACdElEQVRIS9WWTVLbQBCFXzfsIScInABp5H1wpZIsY04AN4g5QcgNzAkCJ4izTeWH7NFI3MD7LGLvTXeqpySVbEuxDKkymZXL6pmvu+dNdxO2tGhLXDxtcBZF+0p01CU7pHoX5/l0nW1rxFkUHQjzewKOARysO2jp+0SBGxb5EOf5pGlvIziLokiZfwDYLzbNAOQd4RGAvcJ2SiL9OM9X9q6ALVJlzgKU6DPd3w/bvG5zJJyxszOC6lsABo+Xz1gB+zi+AtGpQV2aDjpGWZnlSdIXEXZZ9s0nyTjAVa9dlp3Vz1oFO2d38pxEDjeNNEBVvxuAmF9jPv9VZG/ivD9sBQf1Mv8GcOe8t7taWXb/YD5V1fCdiHKIXJqTPo5fguir/c9Eb6I0/eKd02An8qyu9oWIs17vWEVMVD+d96bmhZU6NyLgXYtKR7H351mv94pUyaBm550zYR0Rcz++vb0p93YGL0BVr4l5bIeoyCBown4Dl4n3w7pj3jmDvXgQuHhepnRL7UmcpgFarixJBqr6qUjpgjYeBa6ibVBnCS9fw3LUjwJXmxuiraJ27kyBj8v6+D/BW0v11sRl91h/TgpcsUhQtjAPCAjl8J8/p1JAfysgTdDuBaQsmUS5S9O4pWRanx4SEEqmAjmLjNrqeqeSWXj44Cax7GhNGzPnfdnbg1lrW1RgnHh/0hR11/82aovFIGCFfc/gLHK+aXu0SIuxyfr5jESitYOARVOkyIp7NcJAtdvoQ2R3X41MxDyod6XG7rRQ+G18IboAkXldOtA1yzOojkn1YqNhr0EkB9jd7TZpzufTpuFu+cynPdB3ze8mdluL+A8vKtguJE1b4AAAAABJRU5ErkJggg=="/></a>
-                                @polleriasanm</li>
+                                @pollerialacabañita</li>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : probando
-    Created on : 22/11/2021, 08:24:27 PM
-    Author     : USER
---%>
-
 <%@page import="Controlador.ControladorProductos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
