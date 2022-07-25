@@ -1,8 +1,3 @@
-<%-- 
-    Document   : listadoReserva
-    Created on : 07/12/2021, 05:49:17 PM
-    Author     : USER
---%>
 <%@page import="java.util.*" %>
 <%@page import="Beans.Beans_Reserva"%>
 

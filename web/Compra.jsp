@@ -56,7 +56,7 @@
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#header">Inicio</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Mis pedidos</a></li>
+                    <li><a class="nav-link scrollto" href="mispedidos.jsp">Mis pedidos</a></li>
                     <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
 
                     <li class="nav-item">

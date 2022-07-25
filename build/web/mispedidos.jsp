@@ -24,7 +24,7 @@
 <%    } else {
         usuario = (String) sesionOk.getAttribute("usuario");
         email = (String) sesionOk.getAttribute("email");
-         id = (String) sesionOk.getAttribute("id");
+        id = (String) sesionOk.getAttribute("id");
     }
 
 %>
@@ -42,7 +42,7 @@
         <link href="estilos/estilos1.css" rel="stylesheet">
     </head>
     <body >
-        
+
         <style>
             body{
                 background-image: url(img/banner.jpg);
@@ -75,9 +75,6 @@
             </div>
         </header>
 
-<!--<input type="text" readonly="readonly" name="txtId" class="form-control" value="< %=id%>">-->
-        <!--           <h1>Compra Hecha exitosamente!</h1> 
-                     En unos momentos nos comunicaremos con usted para confirmar el pedido-->
         <h1>
 
             <%      if (request.getAttribute("msg4") != null) {
@@ -108,12 +105,11 @@
         <div class=" container align-items-center">
             <h2 align="center">Mis Pedidos</h2
             <%
-                
                 PreparedStatement ps;
-                 int idclienten = Integer.parseInt(id);
+                int idclienten = Integer.parseInt(id);
                 ResultSet rs;
 //                ps = ConexionDB.getConexion().prepareStatement("Select * from pedidos where id_cliente like " + "'%" + request.getAttribute("idcliente") + "%'");
-                ps = ConexionDB.getConexion().prepareStatement("Select * from pedido where id_cliente like " + "'%" +idclienten+ "%'");
+                ps = ConexionDB.getConexion().prepareStatement("Select * from pedido where id_cliente like " + "'%" + idclienten + "%'");
                 rs = ps.executeQuery();
             %>
             <div class="container">
@@ -135,9 +131,14 @@
                             String estadoTexto = "SIN ESTADO";
                             if (estado == 1) {
                                 estadoTexto = "PENDIENTE";
+                            } else if (estado == 2) {
+                                estadoTexto = "ENVIADO";
+                            } else if (estado == 3) {
+                                estadoTexto = "FINALIZADO";
                             } else {
-                                estadoTexto = "PAGADO";
+                                estadoTexto = "CANCELADO";
                             }
+                            
                     %>                   <tr>
                         <td><%=rs.getInt("id")%></td>
                         <td><%=rs.getInt("id_cliente")%></td>

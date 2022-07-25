@@ -1,9 +1,3 @@
-<%-- 
-    Document   : principal
-    Created on : 05/10/2021, 08:06:49 PM
-    Author     : Nataly Cuyate
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
 <%

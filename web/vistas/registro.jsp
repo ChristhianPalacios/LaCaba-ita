@@ -1,9 +1,3 @@
-<%-- 
-    Document   : registro
-    Created on : 10/10/2021, 01:52:46 AM
-    Author     : Nataly Cuyate
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
 <%@page import="Beans.ClientesBeans"%>

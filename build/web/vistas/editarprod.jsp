@@ -1,9 +1,3 @@
-<%-- 
-    Document   : nuevo
-    Created on : 04/10/2021, 03:25:28 PM
-    Author     : VICTORIA
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
 <%@page import="Beans.ProductosBeans" %>

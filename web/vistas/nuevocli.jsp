@@ -1,9 +1,3 @@
-<%-- 
-    Document   : nuevo
-    Created on : 10/10/2021, 10:21:40 PM
-    Author     : Nataly Cuyate
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
