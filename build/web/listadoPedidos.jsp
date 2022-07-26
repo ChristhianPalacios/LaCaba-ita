@@ -6,7 +6,26 @@
 <%@page import="net.sf.jasperreports.view.JasperDesignViewer" %>
 <%@page import="javax.servlet.ServletResponse" %>
 <%@page import="Utils.ConexionDB" %>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Administrador)-->
+<%@page session="true" %>
+<%
+    String usuario = "";
 
+    HttpSession sesionOk = request.getSession();
+
+    if (sesionOk.getAttribute("usuario") == null) {
+%>
+<jsp:forward page="indexadmin.jsp">
+    <jsp:param name="msg4" value="Debe Iniciar Sesión Obligatoriamente"/>
+</jsp:forward>
+<%
+    } else {
+        usuario = (String) sesionOk.getAttribute("usuario");
+
+    }
+%>
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,6 +46,7 @@
         <h2 align="center">Listado de Pedidos</h2>
          <br>
     <center>
+<!--        Detallamos algunos datos de estados-->
         <div class="row align-items-start">
 
             <div class="col">
@@ -46,6 +66,7 @@
         </div>
         <br>
         <div>
+<!--            Direccionamiento para el PDF-->
             <a href="reportespdf.jsp" class="btn btn-danger"> Generar PDF 📑</a></div>
     </center>
     <br>
@@ -53,6 +74,7 @@
     <div class="container">
 
         <table class="table">
+<!--            Estructura de la tabla-->
             <tr bgcolor="lightgray">
                 <td>Id</td>
                 <td>Nombre</td>
@@ -67,7 +89,7 @@
                 <td>Eliminar</td>
                 <td>Editar</td>
             </tr>
-
+<!--ArrayList que almacena los datos-->
             <%
                 ArrayList<PedidosBeans> lista
                         = (ArrayList<PedidosBeans>) request.getAttribute("lista");
@@ -75,6 +97,7 @@
                     PedidosBeans em = lista.get(i);
             %>
             <tr>
+<!--                Ordenamos los datos-->
                 <td><%=em.getId()%></td>
                 <td><%=em.getNombreCliente()%></td>
                 <td><%=em.getDni() %></td>
@@ -86,6 +109,7 @@
                 <td><%=em.getDetallePago()%></td>
                 <!--<td></td>-->
                 <td>
+<!--                    Botones con sus respectivos acciones que estan en el servlet-->
                     <a href="ServletPedidos?op=eliminar&id=<%=em.getId()%>">
                         <i class='bx bxs-trash bx-sm bx-border-circle bx-burst-hover' style='color:#ff0000'></i> </a>
 
@@ -100,6 +124,7 @@
                 }
             %>
         </table>
+<!--        Fin de la tabla-->
 
     </div>
 

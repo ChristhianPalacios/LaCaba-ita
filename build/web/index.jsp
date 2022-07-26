@@ -48,6 +48,7 @@
                     </div>
                     <h2 class="fow-bold text-center py-5">Hola! Bienvenido</h2>
                     <form action="ServletCientes">
+                        <!--                        Establecemos el mensjae de la restriccion-->
                         <h5>
                             <%
                                 if (request.getAttribute("msg6") != null) {
@@ -62,7 +63,7 @@
                         </h5>
                     </form>
                     <form action="ServletLogin">
-
+                        <!--Inicio de login (Formulario)-->
                         <div class="mb-4">
                             <label for="usuario" class="form-label">DNI:</label>
                             <input type="text" name="txtDNI" class=" form-control"  placeholder="Ingrese DNI" id="DNI">
@@ -72,14 +73,13 @@
                             <label for="password" class="form-label">Password:</label>
                             <input type="password" name="txtContra" placeholder="**************" class="form-control" required="required">
                         </div>
-                        <!--                        <div class="mb-4">
-                                                    <input type="checkbox" name="connected" class="form-check-input">
-                                                    <label for="connected" class="form-check-label">Mantenerme Conectado</label>
-                                                </div>-->
+
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                         </div>
                         <br>
+                        
+                        <!--mostrmos mensaje de restriccion -->
                         <h5>
                             <%
                                 if (request.getAttribute("msg") != null) {
@@ -92,7 +92,7 @@
                                 }
                             %>
                         </h5>
-
+                        <!--mostrmos mensaje de restriccion -->
                         <h6>
                             <center>
                                 <%
@@ -107,15 +107,17 @@
                                 %>
                             </center>
                         </h6>
-
+                         <!--Direccionamiento si por A o B no tiene cuenta registrada-->
                         <div class="my-3">
                             <span>No tienes cuenta?<a href="nuevocli.jsp">Regístrate</a></span><br>
+                            <!--direccionamiento de inicio de sesion para el administrador-->
                             <br>
                             <span>¿Eres administrador?<a href="indexadmin.jsp">Ingresa</a></span><br>
 
                         </div>
+<!--                         Boton invicible para la aaccion de iniciar sesion -->
                         <input type="hidden" name="op" value="login"/>
-
+                      <!--Fin de login (Formulario)-->
                     </form>
 
 
@@ -158,9 +160,9 @@
             </div>
 
         </div>
+                            <!--Links de JS para las restricciones en los Input-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="js/Restricciones.js" type="text/javascript"></script>
 
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
- <script src="js/Restricciones.js" type="text/javascript"></script>
-      
     </body>
 </html>

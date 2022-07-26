@@ -2,6 +2,7 @@
 <%@page import="Controlador.ControladorProductos"%>
 <%@page import="Beans.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Cliente)-->
 <%@page session="true"%>
 <%
     String usuario = "";
@@ -29,6 +30,8 @@
     }
     Controlador.ControladorProductos cp = new ControladorProductos();
 %>
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,13 +61,8 @@
                         <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
                         <li><a class="nav-link scrollto" href="#chefs">Nuestro Equipo</a></li>
                         <li><a class="nav-link scrollto" href="#contact">Contáctanos</a></li>
-                        <li class="nav-item">
-                            <%if (usuario.equals("Victoria")) {%>   <a class="nav-link" href="#">Mantenimientos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Ventas </a><% }%>
-
-                        </li>
+                     
+                     
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Bienvenido <%=usuario%>
@@ -86,7 +84,7 @@
             </div>
         </header>
         <!-- FIN ENCABEZAMIENTO -->
-        <!-- ======= Carrusel de imagenes de presentación ======= -->
+        <!-- ======= imagenen de presentación ======= -->
 
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 
@@ -100,7 +98,7 @@
                 </div>
             </div>
         </div>
-        <!--FIN CARRUSEL -->
+        <!--FIN presentacion -->
 
 
         <!-- ======= Acerca de la polleria ======= -->
@@ -220,6 +218,7 @@
             <div class="row menu-container">
                 <%= cp.getProductosWithPrecio()%>
             </div>
+            <!--            Implemetnamos JS para direccionar las secciones del menu-->
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
             <script>
                 $( document ).ready(function() {
@@ -504,15 +503,15 @@
 
     </footer>
     <!-- FIN FOOTER -->
-<center>
-    <div class="container">
-        <div class="copyright">
-            &copy; Copyright <strong><span>LA CABAÑITA</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-        </div>
-    </div>
-</center>
+        <center>
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>LA CABAÑITA</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                </div>
+            </div>
+        </center>
 
 
 </body>

@@ -46,6 +46,7 @@
                     <h2 class="fow-bold text-center py-5">Hola! Bienvenido</h2>
                   
                     <form action="ServletLoginAdmin">
+                        <!--Inicio de login (Formulario)-->
                         <div class="mb-4">
                             <label for="usuario" class="form-label">Usuario:</label>
                             <input type="text" name="txtUsu" placeholder="Codigo Adiministrador" class="form-control">
@@ -54,17 +55,14 @@
                             <label for="password" class="form-label">Password:</label>
                             <input type="password" name="txtPas" placeholder="**************" class="form-control"> 
                         </div>
-                        <!--                        <div class="mb-4">
-                                                    <input type="checkbox" name="connected" class="form-check-input">
-                                                    <label for="connected" class="form-check-label">Mantenerme Conectado</label>
-                                                </div>-->
-
+                     
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                         </div>
 
                         <input type="hidden" name="op" value="loginadmin"/>
                         <br>
+                         <!--Establecemos el mensjae de la restriccion-->
                           <h5>
                         <%
                             if (request.getAttribute("msg3") != null) {
@@ -78,6 +76,7 @@
                         %>
                     </h5>
                      <h6>
+                          <!--Establecemos el mensjae de la restriccion-->
                             <center>
                             <%
                                 if (request.getParameter("msg4") != null) {
@@ -93,7 +92,7 @@
                         </h6>
                     </form>
                     <br>
-
+                    <!--Fin de Formulario (Inicio de Sesion)-->
 
                     <!-- Redes Sociales -->
                     <div class="container w-100 my-5">

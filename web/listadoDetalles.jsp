@@ -7,6 +7,26 @@
 <%@page import="Beans.PedidosBeans"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Administrador)-->
+<%@page session="true" %>
+<%
+    String usuario = "";
+
+    HttpSession sesionOk = request.getSession();
+
+    if (sesionOk.getAttribute("usuario") == null) {
+%>
+<jsp:forward page="indexadmin.jsp">
+    <jsp:param name="msg4" value="Debe Iniciar Sesión Obligatoriamente"/>
+</jsp:forward>
+<%
+    } else {
+        usuario = (String) sesionOk.getAttribute("usuario");
+
+    }
+%>
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 
 <!DOCTYPE html>
 <html>
@@ -30,9 +50,11 @@
         <div class="container">
             <center>
            <div>
+<!--               Link para el direccionamiento para el PDF-->
                <a href="ListadoDetallePDF.jsp" class="btn btn-danger"> Generar PDF 📑</a></div></center><br>
             <table class="table">
                 <tr bgcolor="lightgray">
+<!--                    Estructura de la tabla-->
                     <td>Id</td>
                     <td>Id Pedido</td>
                     <td>Id Produco</td>
@@ -42,7 +64,7 @@
                     <td>Sub total</td
                 </tr>
 
-
+<!--ArrayList para mostrar los detalles de los pedidos-->
                 <%
 
                     IProductoDao productoDao = new ProductoDaoImpl();
@@ -53,6 +75,7 @@
                         ProductosBeans p = productoDao.listarPorId(dp.getIdProducto());
                 %>
                 <tr>
+<!--                    estructuramos los datos-->
                     <td><%=dp.getId()%></td>
                     <td><%=dp.getIdPedido()%></td>
                     <td><%=dp.getIdProducto()%></td>
@@ -65,7 +88,7 @@
                     }
                 %>
             </table>
-
+            <!--Fin de tabla-->
         </div>
 
     </body>

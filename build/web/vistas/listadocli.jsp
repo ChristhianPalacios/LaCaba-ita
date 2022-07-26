@@ -1,7 +1,26 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
 <%@page import="Beans.ClientesBeans" %>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Administrador)-->
+<%@page session="true" %>
+<%
+    String usuario = "";
 
+    HttpSession sesionOk = request.getSession();
+
+    if (sesionOk.getAttribute("usuario") == null) {
+%>
+<jsp:forward page="indexadmin.jsp">
+    <jsp:param name="msg4" value="Debe Iniciar Sesión Obligatoriamente"/>
+</jsp:forward>
+<%
+    } else {
+        usuario = (String) sesionOk.getAttribute("usuario");
+
+    }
+%>
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 <!DOCTYPE html>
 <html>
     <head>

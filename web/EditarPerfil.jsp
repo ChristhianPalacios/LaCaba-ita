@@ -2,6 +2,7 @@
 
 <%@page import="Beans.ClientesBeans" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Cliente)-->
 <%@page session="true"%>
 <%
     String usuario = "";
@@ -29,7 +30,8 @@
     }
  
 %>
-
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -80,7 +82,9 @@
                     <h2 class="fow-bold text-center py-5">Actualización de tus Datos! 👤</h2>
 
                     <form  action="ServletClientes">
-                   
+<!--                        inicio del Formulario-->
+<!--                        Accion que se establecio en el Servlet-->
+<!--                   formamos un ArrayList de los clientes, pero se mostrara los datos del cliente por el id-->
                         <%
                             ArrayList<ClientesBeans> lista
                                     = (ArrayList<ClientesBeans>) request.getAttribute("listaC");
@@ -121,17 +125,20 @@
                             </tr>
 
                         </table>
+<!--                            boton invicible para hacer la accion de editar Perfil-->
                         <input type="hidden" name="op" value="EditarPerfil">   
 
                         <%
                             }
                         %>
                     </form>
+<!--                    Fin del Formulario-->
                 </div>
             </div>
         </div>
+<!--                    Link para la funcionalidad de los JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+        <!--Llamamos al JS "Restricciones" para la ccion de los input-->
         <script src="js/Restricciones.js" type="text/javascript"></script>
     </body>
 </html>

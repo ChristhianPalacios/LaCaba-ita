@@ -8,6 +8,8 @@
 <%@page import="Utils.*" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Cliente)-->
+
 <%@page session="true" %>
 <%
     String usuario = "";
@@ -30,6 +32,8 @@
     }
 
 %>
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,7 +80,7 @@
 
             </div>
         </header>
-           
+<!--           Creacion de la tabla-->
         <div class=" container align-items-center">
             <h2 align="center" style="margin-top: 40px">Mis Detalles de pedidos</h2>
               <div class="container" style="margin-top: 60px">
@@ -84,6 +88,7 @@
                     
                     <thead>
                         <tr bgcolor="lightgray">
+<!--                            Estructura de la tabla-->
                             <th>Id</td>
                             <th>Id Pedido</th>
                             <th>Nombre de producto</th>
@@ -93,6 +98,7 @@
                         </tr>
                     </thead>
                     <tbody>
+<!--                        Lista para los detalles de pedidos -->
                     <%
                     List<DetallePedidoBeans> listaDetallePedido = (ArrayList<DetallePedidoBeans>)request.getAttribute("listaDetallePedido");
                     for(int i=0;i<listaDetallePedido.size();i++){
@@ -100,6 +106,7 @@
                     %>
           
                         <tr>
+<!--                            Ordenamos los datos -->
                             <td><%=em.getId()%></td>
                             <td><%=em.getIdPedido()%></td>
                             <td><%=em.getNombreProducto()%></td>
@@ -111,7 +118,7 @@
                     </tbody>
                 </table>            
             </div>
-        
+<!--        Fin de la tabla-->
         
     </body>
 </html>

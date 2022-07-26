@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="Beans.*" %>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Cliente)-->
 <%@page session="true" %>
 <%
     String usuario = "";
@@ -22,6 +23,8 @@
     }
 
 %>
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -67,13 +70,17 @@
 
             </div>
         </header>
+        
         <div class="container align-items-center ">
             <h2 align="center">Mi Carrito de Compras</h2>
             <div class="container">
+                <!--Inicio de la Tabla de Cesta-->
+
                 <table class="table table-dark table-striped">
                     <tr bgcolor="white">
                         <th colspan="6">Cesta de Productos</th>
                     </tr>
+<!--                    Estructura de la tabla -->
                     <tr bgcolor="orange">
                         <td>Codigo</td>
                         <td>Nombre</td>
@@ -82,6 +89,7 @@
                         <td>Monto</td>
                         <td>Eliminar</td>
                     </tr>
+<!--                    Datos dentro de la tabla: Creamos un Array List en el cual tendra los platillos seleccionados-->
 
                     <%                        double total = 0;
                         ArrayList<Cesta> lista = (ArrayList<Cesta>) session.getAttribute("carrito");
@@ -89,19 +97,26 @@
                             for (Cesta d : lista) {
                     %>
                     <tr>
+<!--                        Ordenamos los datos que seran mostrados en la tabla-->
                         <td><%=d.getId()%></td>
                         <td><%=d.getNombre()%></td>
                         <td><%=d.getPrecio()%></td>
+<!--                        En los botones direccionamos la accion en el servelt-->
+                        <!--Boton de "-", con su accion que esta dentro del servlet-->
                         <td><a href="ServletProd?op=menos&cod=<%=d.getId()%>&des=<%=d.getNombre()%>&pre=<%=d.getPrecio()%>" class="btn btn-danger">-</a>
                             <%=d.getCan()%>
+                            <!--Boton de "+", con su accion que esta dentro del servlet-->
                             <a href="ServletProd?op=mas&cod=<%=d.getId()%>&des=<%=d.getNombre()%>&pre=<%=d.getPrecio()%>" class="btn btn-primary">+</a> </td>
+<!--                        Calcular el precio multiplicado con la nueva cantidad-->
                         <td><%=d.getCan() * d.getPrecio()%></td>
                         <td class="text-center">
+<!--                            Boton de eliminar con su respectivo direccionamiento de la accion que se encuentra dentro del Servlet-->
                             <input type="hidden" id="idp" value="<%=d.getId()%>">
                             <a href="ServletProd?op=Delete&idp=<%=d.getId()%>" class="btn btn-danger" id="btnDelete"><i class="fa-solid fa-trash"></i></a>
 
                         </td>
                     </tr>
+<!--                    Cuando la direccion del "+" y "-" Cambien , se cambiara el precio-->
                     <%
 
                                 total = total + (d.getPrecio() * d.getCan());
@@ -109,6 +124,7 @@
                         }
                     %>
                     <tr>
+<!--                        Se Muestra el monto total ya con los calculos establecidos-->
                         <td align="right" colspan="5">Total</td>
                         <td><%=total%></td>
                     </tr>
@@ -116,12 +132,15 @@
 
             </div> 
             <div class="container">
+<!--                Direccionamiento al menu y al pago-->
                 <h4 align="center"><a href="dashboardcliente.jsp#menu" class="btn btn-success">
                         Seguir Comprando
                     </a> <a href="Compra.jsp" class="btn btn-primary">
                         Solicitar Por Delivery
                     </a></h4>    
             </div>
+<!--                    Fin de la tabla -->
+
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
             <script src="js/funciones.js" type="text/javascript"></script>
     </body>

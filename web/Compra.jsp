@@ -3,6 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="Beans.*" %>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Cliente)-->
 <%@page session="true" %>
 <%
     String usuario = "";
@@ -10,7 +11,7 @@
     String apellidos = "";
     String id = "";
     String direccion = "";
-    String dni="";
+    String dni = "";
     HttpSession sesionOk = request.getSession();
 
     if (sesionOk.getAttribute("usuario") == null) {
@@ -26,10 +27,12 @@
         apellidos = (String) sesionOk.getAttribute("apellidos");
         id = (String) sesionOk.getAttribute("id");
         direccion = (String) sesionOk.getAttribute("direccion");
- dni = (String) sesionOk.getAttribute("dni");
+        dni = (String) sesionOk.getAttribute("dni");
     }
 
 %>
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -75,6 +78,7 @@
         </div>
     </header>
     <div class="container align-items-center ">
+        <!--Inicio de la Tabla y formulario de solicitar por delivery-->
         <h2 align="center">Solicitar Pedido Por Delivery</h2>
         <div class="container">
             <table class="table table-dark table-striped">
@@ -82,9 +86,11 @@
                     <th colspan="5">Cesta de Productos</th>
                 </tr>
                 <tr bgcolor="orange">
+                    <!--Estructura de la tabla -->
                     <td>Codigo</td><td>Nombre</td><td>Precio</td>
                     <td>Cantidad</td><td>Monto</td>
                 </tr>
+                <!--Datos dentro de la tabla: Creamos un Array List en el cual tendra los platillos seleccionados-->
 
                 <%                        double total = 0;
                     ArrayList<Cesta> lista = (ArrayList<Cesta>) session.getAttribute("carrito");
@@ -92,31 +98,41 @@
                         for (Cesta d : lista) {
                 %>
                 <tr>
+                    <!--Ordenamos los datos que seran mostrados en la tabla-->
                     <td><%=d.getId()%></td>
                     <td><%=d.getNombre()%></td>
                     <td><%=d.getPrecio()%></td>
+                    <!--En los botones direccionamos la accion en el servelt-->
+                    <!--Boton de "-", con su accion que esta dentro del servlet-->
                     <td><a href="ServletProd?op=menos&cod=<%=d.getId()%>&des=<%=d.getNombre()%>&pre=<%=d.getPrecio()%>" class="btn btn-danger">-</a>
                         <%=d.getCan()%>
+                        <!--Boton de "+", con su accion que esta dentro del servlet-->
                         <a href="ServletProd?op=mas&cod=<%=d.getId()%>&des=<%=d.getNombre()%>&pre=<%=d.getPrecio()%>" class="btn btn-primary">+</a> </td>
+                    <!--Calcular el precio multiplicado con la nueva cantidad-->
                     <td><%=d.getCan() * d.getPrecio()%></td>
                 </tr>
+                <!--Cuando la direccion del "+" y "-" Cambien , se cambiara el precio-->
                 <%
                             total = total + (d.getPrecio() * d.getCan());
                         }
                     }
                 %>
+                <!--Se Muestra el monto total ya con los calculos establecidos-->
                 <tr>
                     <td align="right" colspan="4">Total</td>
                     <td><%=total%></td>
                 </tr>
             </table>
-
+                <!--Fin de la tabla-->
         </div> 
         <div class="container">
+<!--            Inicio del Formulario-->
+<!--            Codigo para establecer la hora y la fecha del dia-->
             <% LocalDateTime hora = LocalDateTime.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 String fecha = (hora.format(formatter));%>
             <form  action="ServletPedidos">
+<!--                Estructura del formulario-->
                 <table class="table table-dark">
                     <tr>
                         <td>ID Cliente: </td> 
@@ -128,7 +144,7 @@
                     </tr> 
                     <tr>
                         <td>DNI:</td> 
-                        <td><input type="text" readonly="readonly" name="txtDNI" class="form-control" value="<%=dni %>"></td>
+                        <td><input type="text" readonly="readonly" name="txtDNI" class="form-control" value="<%=dni%>"></td>
                     </tr>
                     <tr>
                         <td>Detalle Adicional del Pedido: </td> 
@@ -153,10 +169,13 @@
                         <td><input type="Submit" name="btn" class="form-control btn-why"  value="Terminar Solicitud"></td>
                     </tr>
                 </table> 
+<!--                    botones invicibles para enviar el monto total y para laaccion "insertar" que estara en el servlet-->
                 <input type="hidden" name="total" value="<%=total%>">
-              
-                <input type="hidden" name="op" value="insertar">   
+
+                <input type="hidden" name="op" value="insertar">  
+<!--                Fin de formulario -->
             </form> 
+<!--                direccionamiento de volver a la cesta para seguir comprando platillos-->
             <h4 align="center"><a href="Cesta.jsp" class="btn btn-success">
                     Volver a Cesta
             </h4>    

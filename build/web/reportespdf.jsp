@@ -14,16 +14,23 @@
     </head>
     <body>
         <%
+            //            Establecemos la ruta donde se encuentra el reporte
             File reportfile = new File(application.getRealPath("listadoPedidosPDF.jasper"));
+//            Crearemos un objeto en la cual almacenara datos tipo String y Object
             Map<String, Object> parameter = new HashMap<String, Object>();
-            byte[] bytes=JasperRunManager.runReportToPdf(reportfile.getPath(), parameter, ConexionDB.getConexion());
+//            creamos un arreglo de bytes
+            byte[] bytes = JasperRunManager.runReportToPdf(reportfile.getPath(), parameter, ConexionDB.getConexion());
+//            Indicaremos la salida que sera PDF
             response.setContentType("application/pdf");
             response.setContentLength(bytes.length);
-            ServletOutputStream outputStream=response.getOutputStream();
-            outputStream.write(bytes,0,bytes.length);
-            
+//            creamos un objeto output que viene ser la salida para el reporte pdf
+            ServletOutputStream outputStream = response.getOutputStream();
+//           dibujara el reporte con todos los datos que tiene los bytes 
+            outputStream.write(bytes, 0, bytes.length);
+//           Limpiar los flujos de salida, para que no este abierto inecesariamente
             outputStream.flush();
             outputStream.close();
-        %>
+//            fin
+%>
     </body>
 </html>

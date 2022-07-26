@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Administrador)-->
 <%@page session="true" %>
 <%
     String usuario = "";
@@ -16,6 +17,8 @@
 
     }
 %>
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 <!DOCTYPE html>
 <html>
 
@@ -45,7 +48,7 @@
         </style>
 
     </head>
-
+    <!--Encabesado-->
     <body>
         <div class="container-fluid">
             <div class="row justify-content-center align-content-center">
@@ -65,14 +68,14 @@
                             </div>
                             </div>
                             </div>
-
+                            <!--Fin encabezado-->
                             <div class="container-fluid">
                                 <div class="row">
 
                                     <div class="barra-lateral col col-sm-auto">
                                         <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
                                             <a href="#"><i class="fas fa-home"></i><span>Inicio</span></a>
-                                            
+<!--                                            Vistas del dashboard-->
                                             <div id="menu5" class="menu">  <a href="#"> <i class="fas fa-clipboard"></i><span>Perfil</span></a></div>
                                             <div id="menu9" class="menu"><a href="#"><i class="fas fa-solid fa-phone"></i><span>Contactanos</span></a></div>
                                             <div id="menu4" class="menu">  <a href="#"> <i class="fas fa-users-cog"></i><span>Administrar Clientes</span></a></div>
@@ -88,6 +91,7 @@
                                     <iframe id="content" src=""></iframe>
                                 </div>
                             </div>
+<!--                            Inicio de JS para las direcciones y acciones para las paginas-->
                             <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
                             <script>
                                 $(document).ready(function (e) {
@@ -116,10 +120,6 @@
                                     $('#menu7').on('click', function () {
                                         $('#content').attr('src', 'ServletDetalle?op=listar');
                                     });
-                                    $('#menu8').on('click', function () {
-                                        $('#content').attr('src', 'Servlet_Reserva?res=listar');
-
-                                    });
                                     $('#menu9').on('click', function () {
 
                                         $('#content').attr('src', 'ServletAdmin?op=ListarContactanos');
@@ -127,6 +127,7 @@
                                 });
 
                             </script>
+<!--                            Fin de JS-->
                             </body>
                             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
                             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

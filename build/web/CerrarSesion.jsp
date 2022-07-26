@@ -8,6 +8,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+<!--        Cerrar Sesion y direccionar a la pagina Principal-->
         <%
             HttpSession sesion = request.getSession();
             sesion.invalidate();

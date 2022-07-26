@@ -35,7 +35,7 @@
                 <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
 
                 </div>
-
+                <!--Estilo del mesanje de confirmacion-->
                 <div class="col bg-white p-5 rounded-end">
                     <div class="text-end">
                         <img src="img/LOGOPRUEBA1.png" width="70" alt=""/>

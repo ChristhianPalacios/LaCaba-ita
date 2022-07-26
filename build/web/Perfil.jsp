@@ -2,6 +2,7 @@
 <%@page import="Controlador.ControladorProductos"%>
 <%@page import="Beans.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--Verificacion de la sesion, ademas llamamos los datos de usuario(Cliente)-->
 <%@page session="true"%>
 <%
     String usuario = "";
@@ -34,6 +35,8 @@
     }
 
 %>
+<!--Ademas restricciones para que no entren a la pagina defrente sin haber iniciado Sesion-->
+<!--Fin de Session-Restricciones-Envio de Datos-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -82,6 +85,7 @@
 
                     <form action="ServletClientes">
                         <h5>
+                        <!--Establecemos el mensaje de restricion si es que se cumple la restriccion-->
                             <center>
                                 <%                                if (request.getAttribute("msg22") != null) {
                                         String msg = request.getAttribute("msg22").toString();
@@ -94,6 +98,7 @@
                                 %>
                             </center>
                         </h5>
+<!--                            inicio de formulario-->
                         <div class="mb-4">
                             <label for="usuario" class="form-label">ID:</label>
                             <input type="text" name="txtId" value="<%=id%>" class="form-control" readonly="readonly">
@@ -132,10 +137,12 @@
                                                 </div>-->
 
                         <div class="mb-4">
-
+                            <!--Boton de direccionamiento con la accion de Editar Perfil -->
                             <button class="btn btn-dark"><a href="ServletClientes?op=ConsultaPerfil&id=<%=id%>" style="color: #FFFFFF;"> 
                                     Editar Perfil</a></button> 
+                                    
                         </div>
+                                    <!--Fin del formulario-->
                         <br>
                     </form>
                 </div>

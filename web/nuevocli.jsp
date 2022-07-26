@@ -36,6 +36,7 @@
                     <h2 class="fow-bold text-center py-5">Hola! Bienvenido Registrate</h2>
 
                     <form action="ServletClientes">
+<!--                        Mensaje de restriccion-->
                         <h6>
                             <%
                                 if (request.getAttribute("msge") != null) {
@@ -49,6 +50,7 @@
                             %>
                         </h6>
                         <table align="center" class="table">
+<!--                            Estructura de formulario-->
                             <tr>
                                 <td for="Nombre" class="form-label">Nombre: </td> 
                                 <td><input type="text" name="txtNom" class="form-control" placeholder="Ingrese Nombre" required="requerid"></td>
@@ -78,11 +80,12 @@
                             </tr>
 
                         </table>
+<!--                        boton invisible para direccionar con la accion que se encuentra en el servlet-->
                         <input type="hidden" name="op" value="insertar">    
 
                     </form>
 
-
+<!--Fin del formulario-->
 
 
                 </div>
