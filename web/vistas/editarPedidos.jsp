@@ -59,8 +59,56 @@
               <td>Total</td> 
               <td><input type="text" name="txtTotal" class="form-control" value="<%=em.getTotal()%>" readonly="readonly" ></td>
            </tr>  <tr>
-              <td>Estado</td> 
-              <td><input type="text" name="txtEstado" class="form-control" value="<%=em.getIdEstado()%>"></td>
+              <td> Estado</td> 
+              
+              <td>
+              <%  
+                  String  [] opcionesTexto = new String [3];
+                  int [] opciones = new int [3];
+                  int estado = em.getIdEstado();
+              
+              switch (estado){
+                  
+                 case 1:
+                     //2 enviado, 4 cancelar
+                     opciones[0]=2;
+                     opcionesTexto[0]="Enviado";
+                     opciones[1]=4;
+                     opcionesTexto[1]="Cancelado";
+                 break;
+                  case 2: // finalizado
+                     opciones[0]=3;
+                     opcionesTexto[0]="Finalizado";
+                    
+                 break;
+                    //Cancelado
+                  case 3:
+                     opciones[0]=4;
+                     opcionesTexto[0]="Cancelado";
+                     
+                 break;
+                 
+              }
+              
+              %>
+              <select value=" "class="form-select" name="txtEstado" aria-label="Default select example">
+               <option selected>Seleccione el estado </option>
+                  <option value="<%=opciones[0]%>" >  <%=opcionesTexto[0]%> </option>
+                  
+              
+                 
+                <%
+                  if(opciones[1]==0){
+                      
+                  }else{%>
+                      <option value="<%=opciones[1]%>" >  <%=opcionesTexto[1]%> </option>
+                <%  }%>
+                   
+                  
+              
+               
+                </select>
+             </td> 
            </tr> 
            <td>Creado: </td> 
            <td><input type="datetime" name="txtFecha" readonly="readonly" class="form-control" value="<%=em.getCreado()%>"></td>
